@@ -219,6 +219,13 @@ h6 {
   }
 }
 
+@media (max-width: 768px) {
+  .contact .info-wrap .row {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 .header.header-show {
   left: 0;
 }
