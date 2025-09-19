@@ -93,7 +93,7 @@
 
         <div class="row gy-4">
 
-          <div class="col-lg-8">
+          <div id="content-image" class="col-lg-8">
             <div class="portfolio-details-slider swiper init-swiper">
 
               <script type="application/json" class="swiper-config">
@@ -123,21 +123,16 @@
             </div>
           </div>
 
-          <div class="col-lg-4">
+          <div id="content-info" class="col-lg-4">
             <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
               <h3>Project information</h3>
               <ul>
-                <li><strong>Category</strong>: Web design</li>
-                <li><strong>Client</strong>: ASU Company</li>
-                <li><strong>Project date</strong>: 01 March, 2020</li>
-                <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
+                <li id="category"></li>
+                <li id="client"></li>
               </ul>
             </div>
-            <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
-              <h2>Exercitationem repudiandae officiis neque suscipit</h2>
-              <p>
-                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
-              </p>
+            <div id="description" class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
+              <h2>Detail Project</h2>
             </div>
           </div>
 
@@ -190,6 +185,168 @@
 
     // Set value src
     image.src = "assets/img/projects/" + img;
+
+    const contentImage = document.getElementById("content-image");
+    const contentInfo = document.getElementById("content-info");
+
+    if (img && img.includes("mobile")) {
+      contentImage.classList.remove("col-lg-8");
+      contentImage.classList.add("col-lg-4");
+
+      contentInfo.classList.remove("col-lg-4");
+      contentInfo.classList.add("col-lg-8");
+    }
+
+    // Data set
+    const portfolios = [
+      {
+        category: "Web App",
+        client: "Fugro PTE. LTD",
+        image: "fugro_wms_web.jpg",
+        description: {
+          content: "Aplikasi Web untuk melakukan management inventory kapal pada Fugro PTE. LTD. Aplikasi ini terintegrasi dengan Rest API dan dibangun menggunakan : ",
+          tools: [
+            "Bahasa Pemrograman : C#, html, css, jQuery.",
+            "Framework : .Net Core 8, Bootstrap 5",
+            "Database : SQL Server 2016",
+            "Komponen : Telerik UI for ASP.NET Core"
+          ],
+          menu: [
+            "Dashboard",
+            "System (Audit Log, Modules, Document Type, General List, User, Rights, Roles, User Role, User Rights, Role Rights)",
+            "Master Data (Business Partner, Item, Entity - Service Line, Location)",
+            "Inventory (Stock List - S0, Stock List - S1/SN, Transaction History, Stock Transfer, Stock Take)",
+            "Transaction (Transfer In, Transfer Out, Add Items)"
+          ]
+        }
+      },
+      {
+        category: "Mobile App (Android)",
+        client: "Fugro PTE. LTD",
+        image: "fugro_wms_mobile.jpg",
+        description: {
+          content: "Aplikasi Mobile untuk melakukan management inventory kapal pada Fugro PTE. LTD. Aplikasi ini terintegrasi dengan Rest API dan dibangun menggunakan : ",
+          tools: [
+            "Bahasa Pemrograman : Java, XML",
+            "Device Mobile : Chainway C72",
+            "Feature Device : UHF RFID Reader, Barcode Scanner",
+            "Database : SQL Server 2016"
+          ],
+          menu: [
+            "Home",
+            "Master Data (Business Partner, Item, Entity - Service Line, Location)",
+            "Stock List",
+            "Transaction (Stock Transfer, Stock Take, Transfer In, Transfer Out, Add Items, Item Search, Item Description)",
+            "Settings (Config Profile, Setting Reader)"
+          ]
+        }
+      },
+      {
+        category: "Web App",
+        client: "Lian Huat Furniture Rental PTE. LTD",
+        image: "lh_erp.jpg",
+        description: {
+          content: "Aplikasi ERP ini dibangun untuk membantu perusahaan dalam mengintegrasikan, mengotomatisasi, dan mengelola berbagai proses bisnis pada Lian Huat Furniture Rental PTE. LTD. Aplikasi ini dibangun menggunakan : ",
+          tools: [
+            "Bahasa Pemrograman : C#, html, css, jQuery.",
+            "Framework : .Net Framework 4.6, Bootstrap 4",
+            "Database : MySQL 5.6",
+            "Komponen : Telerik UI"
+          ],
+          menu: [
+            "Dashboard",
+            "Transacttion (Begin Balance, Stock, Transfer, Stock Adjust, Stock Take, Stock List, Item Comming In, Recalculate Stock, Sales Quotation, Sales Agreement, Purchase Order, Purchase Invoice, Search Transactions, Payment Voucher)",
+            "Condo Mgt Forms (Master)",
+            "Room Planner",
+            "Accounting (Deposit Management, Sales Invoice, Recurring Invoicing, Document Adjustment, Receipt, Refund Voucher, Account Receivable, General Ledger, Ledger)",
+            "Report (Sales Report, Accouont Report, Product / Price Tag)",
+            "Master Data (Item, Business Partner, Employee, General List, Account, GST, Billing Item)",
+            "System (User, Role, Account Mapping, Logging)",
+            "Sales Kit (Master)"
+          ]
+        }
+      },
+      {
+        category: "Mobile App (Android)",
+        client: "Lian Huat Furniture Rental PTE. LTD",
+        image: "lh_barcode_scanner_mobile.jpg",
+        description: {
+          content: "Aplikasi Mobile untuk melakukan scan barcode item pada inventory saat melakukan transaksi. Aplikasi ini terintegrasi dengan ERP Web App melalui signalR dan dibangun menggunakan : ",
+          tools: [
+            "Bahasa Pemrograman : Java, XML",
+            "Device Mobile : Android Phone",
+            "Feature Device : Barcode Scanner",
+            "Database : SQLite"
+          ],
+          menu: [
+            "Home"
+          ]
+        }
+      },
+      {
+        category: "Mobile App (Android)",
+        client: "PT. Geo Energy",
+        image: "geo_coal_mobile.jpg",
+        description: {
+          content: "Aplikasi Mobile untuk melakukan transaksi dengan men-scan setiap truk yang masuk atau keluar dari area lokasi tambang batu bara. Aplikasi ini terintegrasi dengan Rest API dan dibangun menggunakan : ",
+          tools: [
+            "Bahasa Pemrograman : Java, XML",
+            "Device Mobile : Chainway C72",
+            "Feature Device : UHF RFID Reader, Barcode Scanner"
+          ],
+          menu: [
+            "Home",
+            "Master Data (Material Code, Material Form, Company, Seam)",
+            "Truck (Truck Register, Truck Description)",
+            "Transaction (In, Out)",
+            "Settings (API Config, Reader Config)"
+          ]
+        }
+      },
+      {
+        category: "Desktop App",
+        client: "PT. Krama Yudha Ratu Motor",
+        image: "bsi_desktop_app.jpg",
+        description: {
+          content: "Aplikasi Desktop untuk melakukan monitoring pada proses produksi perakitan mobil. Aplikasi ini dibangun menggunakan : ",
+          tools: [
+            "Bahasa Pemrograman : C#",
+            "Device : Windows PC",
+            "Database : SQL Server 2019"
+          ],
+          menu: [
+            "File (Change Password, Exit)",
+            "Master Data (Process, Process Line, Color, RFID Tag, Cabin Group, Varian, Barcode Pattern)",
+            "Transaction (Cabin, Chassis, Engine, TopCoat Off, Trimming Off, Manual Entry, Production Schedule, Working Time, Special Color, Cycle Time, Process Monitoring, Smart Tools Report)",
+            "ZC Model (Chassis Daily Schedule, Color Daily Schedule, Welding On, TopCoat On, TopCoat Off, Trimming Off)",
+            "Admin (User, Authorization, Setting, Syncronize)"
+          ]
+        }
+      }
+    ];
+
+    const result = portfolios.find(item => item.image === img);
+    const categoryElement = document.getElementById("category");
+    const clientElement = document.getElementById("client");
+    const descriptionElement = document.getElementById("description");
+
+    categoryElement.innerHTML = `<strong>Category</strong>: ${result.category}`;
+    clientElement.innerHTML = `<strong>Client</strong>: ${result.client}`;
+
+    let htmlDescription = `<p>${result.description.content}</p>`;
+    htmlDescription += "<ul>";
+    result.description.tools.forEach(tool => {
+      htmlDescription += `<li>${tool}</li>`;
+    });
+    htmlDescription += "</ul>";
+
+    htmlDescription += "<p>Menu yang tersedia antara lain :</p><ul>";
+    result.description.menu.forEach(menu => {
+      htmlDescription += `<li>${menu}</li>`;
+    });
+    htmlDescription += "</ul>";
+
+    descriptionElement.innerHTML += htmlDescription;
 
   </script>
 
